@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import org.springframework.stereotype.Repository;
-
 import hello.hellospring.domain.Member;
 
 public class MemoryMemberRepository implements MemberRepository{
@@ -28,17 +26,19 @@ public class MemoryMemberRepository implements MemberRepository{
 	}
 
 	@Override
-	public Optional<Member> findByName(String name) {
-		return store.values().stream()
-								.filter(member -> member.getName().equals(name))
-								.findAny();
-	}
-
-	@Override
 	public List<Member> findAll() {
 		
 		return new ArrayList<>(store.values());
 	}
+	
+	@Override
+	public Optional<Member> findByName(String name) {
+		return store.values().stream()
+								.filter(member ->  member.getName().equals(name))
+								.findAny();
+	}
+
+	
 	
 	public void clearStore() {
 		store.clear();
