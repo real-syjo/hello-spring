@@ -32,7 +32,7 @@ class MemberServiceIntegrationTest {
 	 public void 회원가입() throws Exception {
 		// Given
 		Member member = new Member();
-		member.setName("spring");
+		member.setName("spring100");
 		// When
 		Long saveId = memberService.join(member);
 		// Then
